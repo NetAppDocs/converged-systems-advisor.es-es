@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: concept_overview.html 
+keywords: converged systems advisor, netapp, overview, concepts, features, use case, video, value 
+summary: El asesor de sistemas convergentes valida la puesta en marcha de su infraestructura de FlexPod y proporciona supervisión y notificaciones continuas para garantizar la continuidad del negocio. 
+---
+= Información general del asesor de sistemas convergentes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+El asesor de sistemas convergentes valida la puesta en marcha de su infraestructura de FlexPod y proporciona supervisión y notificaciones continuas para garantizar la continuidad del negocio.
+
+Vea el siguiente vídeo para obtener una descripción general de Converged Systems Advisor:
+
+video::CZHu0Xp33BY[youtube,width=848,height=480]
+Si desea obtener más detalles sobre el valor que proporciona Converged Systems Advisor, https://www.netapp.com/us/media/ds-3896.pdf["lea la hoja de datos"^].

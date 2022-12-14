@@ -1,0 +1,196 @@
+---
+sidebar: sidebar 
+permalink: task_create_accounts_flexpod_devices.html 
+keywords: create, accounts, FlexPod, devices, support, accounts, account, configuration, registering, FlexPod, VMware, ESXi server, connection, connectivity, agent, portal 
+summary: Para comenzar, configure cuentas para dispositivos FlexPod. 
+---
+= Crear cuentas para dispositivos FlexPod
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+Para comenzar, configure cuentas para dispositivos FlexPod:
+
+* <<Cree una cuenta de solo lectura para Cisco UCS Manager>>
+* <<Cree una cuenta de solo lectura para los switches Nexus>>
+* <<Cree una cuenta de administrador para ONTAP>>
+* <<Cree una cuenta de solo lectura para VMware>>
+* <<Cree una cuenta de solo lectura en la APIC>>
+* <<Conceda privilegios de usuario de CSA mediante un servidor TACACS+>>
+
+
+El agente utiliza estas cuentas para recopilar información de configuración de cada dispositivo.
+
+
+
+== Cree una cuenta de solo lectura para Cisco UCS Manager
+
+.Pasos
+. Inicie sesión en Cisco UCS Manager.
+. Cree un usuario autenticado localmente denominado _csa-readonly_.
++
+
+TIP: De forma predeterminada, todos los usuarios nuevos son de sólo lectura.
+
+
+
+
+
+== Cree una cuenta de solo lectura para los switches Nexus
+
+.Pasos
+. Inicie sesión en cada switch Nexus mediante SSH o Telnet.
+. Entre al modo de configuración global:
++
+....
+ configure terminal
+.. Create a new user:
+....
++
+....
+ username [name] password [password] role network-operator
+.. Save the configuration:
+....
++
+ copy running configuration startup configuration
+
+
+Si está utilizando un servidor TACACS+ y necesita otorgar privilegios de usuario de CSA, vaya a. link:task_grant_user_privileges.html["Concesión de privilegios de usuario de CSA mediante un servidor TACACS+"].
+
+
+
+== Cree una cuenta de administrador para ONTAP
+
+.Pasos
+. Inicie sesión en OnCommand System Manager y haga clic en el icono de configuración:
++
+image:screenshot_system_manager_settings.gif["El icono de configuración de System Manager."].
+
+. En la página usuarios, haga clic en *Agregar*.
+. Introduzca un nombre de usuario y una contraseña y añada *ssh*, *ontapi* y *Console* como métodos de inicio de sesión de usuario con acceso de administrador.
++
+image:screenshot_system_manager_add_user.gif["Muestra la pantalla Agregar usuario en el Administrador del sistema, en la que un nuevo usuario de ONTAP tiene permisos ssh y ontapi."]
+
+
+
+
+
+== Cree una cuenta de solo lectura para VMware
+
+.Pasos
+. Inicie sesión en vCenter.
+. En el menú vCenter, seleccione *Administration*.
+. En roles, seleccione *sólo lectura*.
+. Haga clic en el icono *Clone Role action* y cambie el nombre a *CSA*.
+. Seleccione el rol *CSA* recién creado.
+. Haga clic en el icono *Editar función*.
+. En *Editar rol*, elija *Global* y, a continuación, seleccione *licencias*.
+. En la barra lateral, seleccione *Inicio de sesión único->usuarios y grupos->Crear un nuevo usuario*.
+. Nombre al nuevo usuario *CSARO* bajo EL DOMINIO vpshere.local.
+. En la barra lateral, seleccione *permisos globales* en *Control de acceso*.
+. Elija el usuario *CSARO* y asigne EL ROL *CSA*.
+. Inicie sesión en Web Client.
++
+Utilice el ID de usuario: *CSARO@vsphere.locloc l* y la contraseña creada previamente.
+
+
+
+
+
+== Cree una cuenta de solo lectura en la APIC
+
+.Pasos
+. Haga clic en *Admin*.
+. Haga clic en *Crear nuevos usuarios locales*.
+. En *identidad de usuario*, introduzca la información del usuario.
+. En *Seguridad*, seleccione todas las opciones de dominio de seguridad.
+. Haga clic en *+* para agregar certificados de usuario y claves SSH si es necesario.
+. Haga clic en *Siguiente*.
+. Haga clic en *+* para agregar funciones para su dominio.
+. Seleccione *Nombre de rol* en el menú desplegable.
+. Seleccione *Leer* para el *Tipo de privilegio de rol*.
+. Haga clic en *Finalizar*.
+
+
+
+
+== Conceda privilegios de usuario de CSA mediante un servidor TACACS+
+
+Si está utilizando un servidor TACACS+ y necesita otorgar privilegios de usuario de CSA para los conmutadores, debe crear un grupo de privilegios de usuario y conceder acceso de grupo a los comandos de configuración específicos necesarios para CSA.
+
+Los siguientes comandos se deben escribir en el archivo de configuración del servidor TACACS+.
+
+.Pasos
+. Introduzca lo siguiente para crear un grupo de privilegios de usuario con acceso de solo lectura:
+
+
+[listing]
+----
+  group=group_name {
+    default service=deny
+    service=exec{
+      priv-lvl=0
+    }
+  }
+----
+. Introduzca lo siguiente para otorgar acceso a los comandos que necesita CSA:
+
+
+[listing]
+----
+  cmd=show {
+    permit "environment"
+    permit "version"
+    permit "feature"
+    permit "feature-set"
+    permit hardware.*
+    permit "interface"
+    permit "interface"
+    permit "interface transceiver"
+    permit "inventory"
+    permit "license"
+    permit "module"
+    permit "port-channel database"
+    permit "ntp peers"
+    permit "license usage"
+    permit "port-channel summary"
+    permit "running-config"
+    permit "startup-config"
+    permit "running-config diff"
+    permit "switchname"
+    permit "int mgmt0"
+    permit "cdp neighbors detail"
+    permit "vlan"
+    permit "vpc"
+    permit "vpc peer-keepalive"
+    permit "mac address-table"
+    permit "lacp port-channel"
+    permit "policy-map"
+    permit "policy-map system type qos"
+    permit "policy-map system type queuing"
+    permit "policy-map system type network-qos"
+    permit "zoneset active"
+    permit "san-port-channel summary"
+    permit "flogi database"
+    permit "fcns database detail"
+    permit "fcns database detail"
+    permit "zoneset active"
+    permit "vsan"
+    permit "vsan usage"
+    permit "vsan membership"
+    }
+----
+. Introduzca lo siguiente para agregar la cuenta de usuario de CSA al grupo recién creado:
+
+
+[listing]
+----
+  user=user_account{
+    member=group_name
+    login=file/etc/passwd
+  }
+----

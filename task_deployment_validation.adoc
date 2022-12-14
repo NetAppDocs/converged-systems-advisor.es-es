@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: task_deployment_validation.html 
+keywords: partner, validate, deployment validation 
+summary: Si es partner de NetApp, puede comenzar a colaborar con el asesor de sistemas convergentes trabajando con su cliente para poner en marcha el agente y configurar el portal antes de ejecutar una validación de puesta en marcha. 
+---
+= Informe de validación de puesta en marcha para partners
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Los partners de NetApp pueden ejecutar una validación de puesta en marcha para verificar que una infraestructura convergente de FlexPod está configurada correctamente. Los partners pueden entregar el informe a los clientes.
+
+.Pasos
+. Inicie sesión en la https://csa.netapp.com/["Portal del asesor de sistemas convergentes"^].
+. Expanda la configuración del cliente desde la Lista de clientes.
++
+image:screenshot_partner_customer_list.gif["Muestra tres infraestructuras convergentes para un cliente."]
+
+. En el informe de validación de implementación, haga clic en *generar*.
+. Elija si desea ver el informe en su navegador, en un PDF o por correo electrónico.
+. Revise el informe y corrija cualquier problema de interoperabilidad y error de validación de la implementación.
++
+*ejemplo*
+
++
+En esta configuración de ejemplo, no se admiten las versiones de firmware de los switches Nexus:
+
++
+image:screenshot_validation_interop.gif["Muestra la sección de interoperabilidad del informe de validación de la implementación. Incluye dos switches con versiones de firmware no compatibles."]
+
++
+También se han producido cuatro reglas de validación debido a problemas con la conectividad del switch:
+
++
+image:screenshot_validation_errors.gif["En la se muestra la sección errores del informe de validación de implementación. La interconexión estructural no se eleva a la estructura de Fibre Channel Nexus correspondiente."]
+
++
+La actualización del firmware puede corregir la interoperabilidad de la configuración y añadir los enlaces puede corregir las reglas de validación con errores.
+
+. Después de corregir los problemas, recopile datos para garantizar que Converged Systems Advisor tenga los datos de configuración más recientes:
++
+.. Seleccione la infraestructura convergente.
+.. En la esquina superior derecha, haga clic en *recoger*.
++
+image:screenshot_collect_button.gif["Muestra el botón recopilar de la esquina superior derecha que está disponible después de seleccionar una infraestructura convergente."]
+
+
+
+. Genere el informe de nuevo para verificar que ha corregido los problemas.
+. Envíe el informe final de validación de la implementación a su cliente.
+
+
+.Resultado
+La infraestructura convergente está configurada ahora de acuerdo con las prácticas recomendadas.

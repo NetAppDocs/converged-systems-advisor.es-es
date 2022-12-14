@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: reference_new.html 
+keywords: 'new, features, what"s new, enhancements, release notes' 
+summary: NetApp actualiza periódicamente Converged Systems Advisor para ofrecerle nuevas funciones, mejoras y correcciones de errores. 
+---
+= Novedades en Converged Systems Advisor
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp actualiza periódicamente Converged Systems Advisor para ofrecerle nuevas funciones, mejoras y correcciones de errores.
+
+Para confirmar que los componentes de FlexPod son compatibles con el agente CSA, consulte http://mysupport.netapp.com/matrix["Herramienta de matriz de interoperabilidad de NetApp"^] (IMT).
+
+
+
+== 31 de julio de 2020
+
+La versión incluye las siguientes mejoras:
+
+* <<Nueva funcionalidad para la detección de cambios de almacenamiento (diffs)>>
+* <<Garantía de configuración ampliada para switches de interconexión de clúster>>
+* <<Cobertura inicial de diseños de NVMe>>
+
+
+
+
+== Nueva funcionalidad para la detección de cambios de almacenamiento (diffs)
+
+Ahora puede detectar los cambios que se han producido en el sistema de almacenamiento. Para comprobar si hay cambios, en las páginas *Inventario de almacenamiento*, haga clic en *Ver diferencia de configuración*. A continuación, seleccione los datos de configuración y la hora anteriores que se compararán con la configuración de almacenamiento más reciente. Los cambios que se hayan producido se resaltarán para que la revisión sea rápida.
+
+
+
+== Garantía de configuración ampliada para switches de interconexión de clúster
+
+En el portal de Converged Systems Advisor, las comprobaciones de garantía de la configuración se han ampliado para supervisar la compatibilidad del switch de interconexión del clúster de ONTAP de los siguientes modelos:
+
+* Cisco Nexus 3132Q-V
+* Cisco Nexus 3232C
+* Cisco Nexus 92300YC
+
+
+
+
+== Cobertura inicial de diseños de NVMe
+
+Se han añadido las comprobaciones de garantía de configuración inicial para supervisar la compatibilidad de los diseños de almacenamiento de ONTAP NVMe en FlexPod.

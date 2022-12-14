@@ -1,0 +1,81 @@
+---
+sidebar: sidebar 
+permalink: task_troubleshooting.html 
+keywords: troubleshoot, agent, connectivity, browser, discover, error, internet, connection 
+summary: Si se produce un problema mientras se utiliza Converged Systems Advisor, la siguiente información puede ayudarle a resolver el problema. 
+---
+= Solucione problemas de Converged Systems Advisor
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si se produce un problema mientras se utiliza Converged Systems Advisor, la siguiente información puede ayudarle a resolver el problema.
+
+
+
+== No puede conectarse con el agente a través de un explorador Web
+
+Debe conectarse al agente a través de un navegador web para configurar la detección de los dispositivos FlexPod. Si no puede conectarse a través de un explorador Web, asegúrese de que el agente tiene una conexión de Internet saliente a csa.netapp.com. La aplicación Agent no puede iniciarse sin una conexión a Internet, lo que impide el acceso a su interfaz web.
+
+Si se necesita un servidor proxy para el acceso a Internet, link:task_getting_started.html#setting-up-networking-for-the-agent["configure la máquina virtual del agente para utilizarla"].
+
+
+
+== El agente no puede detectar dispositivos
+
+Si el agente no puede detectar un dispositivo FlexPod, compruebe lo siguiente:
+
+* Asegúrese de que el agente tiene una conexión abierta a cada dispositivo FlexPod.
++
+Para verificar, haga ping a cada dispositivo desde el agente.
+
+* Compruebe si una red local está utilizando la subred 172.17.x.x.
++
+El agente utiliza la subred 172.17.x.x internamente. Si una red local está utilizando esa misma subred, debe cambiar la subred del agente:
+
++
+.. Inicie sesión en la consola de máquina virtual del agente.
++
+El nombre de usuario predeterminado es `csa` y la contraseña predeterminada es `netapp`. Debe cambiar la contraseña predeterminada después de iniciar sesión.
+
+.. Agregue el archivo `/etc/docker/daemon.json` con el siguiente contenido:
++
+ { "bip": "172.44.x.x"}
++
+La dirección bip puede ser cualquier dirección IP que no esté en conflicto. No es necesario que esté en la gama 172.
+
+.. Reiniciar la máquina virtual.
+
+
+
+
+
+
+== No se puede conectar al equipo virtual del agente mediante SSH
+
+SSH para el agente VM está deshabilitado de forma predeterminada.
+
+* Para iniciar SSH, inicie sesión en el equipo virtual del agente mediante la consola en vCenter y ejecute los siguientes comandos:
++
+`sudo su`
+`systemctl start ssh`
+
+* Para comprobar si SSH está habilitado, ejecute el siguiente comando:
++
+`systemctl is-enabled ssh`
+
+* Para comprobar el estado de SSH en la VM del agente, ejecute el siguiente comando:
++
+`systemctl status ssh`
+
+* Para habilitar SSH para persistir en todos los reinicios, ejecute los siguientes comandos:
++
+`sudo su`
+`systemctl enable ssh`
+
+

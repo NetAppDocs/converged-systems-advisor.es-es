@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: reference_user_roles.html 
+keywords: read only, write, owner, privileges, access, security, roles 
+summary: Cuando comparte una infraestructura convergente con otro usuario, puede proporcionar privilegios de solo lectura, escritura o propietario. 
+---
+= Roles de usuario
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cuando comparte una infraestructura convergente con otro usuario, debe proporcionar privilegios de solo lectura, escritura o propietario.
+
+En la siguiente tabla se identifican las tareas que pueden realizar cada rol de usuario.
+
+[cols="25,25,25,25"]
+|===
+| Tarea | Solo lectura | Escritura | Propietario 
+
+
+| Ver un sistema | Sí | Sí | Sí 
+
+
+| Actualizar el nombre de un sistema | No | Sí | Sí 
+
+
+| Actualice los datos del contrato de soporte | No | Sí | Sí 
+
+
+| Edite el intervalo de recopilación de datos | No | Sí | Sí 
+
+
+| Solicitar una nueva recopilación de datos | No | Sí | Sí 
+
+
+| Compartir un sistema | No | Sí, con acceso de solo lectura o escritura | Sí, con acceso de solo lectura, escritura o propietario 
+
+
+| Modificar los componentes de un sistema | No | No | Sí 
+
+
+| Eliminar un sistema | No | No | Sí 
+|===

@@ -1,0 +1,28 @@
+---
+sidebar: sidebar 
+permalink: concept_architecture.html 
+keywords: architecture, diagram, components, flexpod, agent, portal, cloud, on premise 
+summary: 'Converged Systems Advisor es una plataforma de software como servicio (SaaS) que consta de un agente en las instalaciones y un portal basado en cloud.' 
+---
+= Cómo funciona el Asesor de sistemas convergentes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Converged Systems Advisor es una plataforma de software como servicio (SaaS) que consta de un agente en las instalaciones y un portal basado en cloud.
+
+En la siguiente imagen, se muestra la relación entre los componentes de Converged Systems Advisor:
+
+image:diagram_architecture.gif["Un diagrama conceptual donde se muestra un agente de FlexPod y Converged Systems Advisor instalado en un centro de datos, así como en el portal basado en cloud."]
+
+. El agente de asesor de sistemas convergentes, que se encuentra en sus instalaciones, recopila datos de configuración de una infraestructura convergente de FlexPod con las credenciales que proporcione.
+. El agente envía los datos al portal Converged Systems Advisor.
+. Los usuarios inician sesión en el portal de Converged Systems Advisor mediante un navegador web para validar, supervisar y optimizar su infraestructura convergente de FlexPod.
+
+
+link:concept_security.html["Lea cómo Converged Systems Advisor protege sus datos"].

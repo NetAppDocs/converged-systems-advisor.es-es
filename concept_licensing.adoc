@@ -1,0 +1,74 @@
+---
+sidebar: sidebar 
+permalink: concept_licensing.html 
+keywords: licenses, standard, premium, features, licensing, alerts, notifications, emails, reports, term, subscription, reporting 
+summary: Se requiere una licencia para desbloquear funciones en Converged Systems Advisor. Puede elegir entre varias opciones de licencia para cada infraestructura convergente de FlexPod. 
+---
+= Licencia
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Se requiere una licencia para desbloquear funciones en Converged Systems Advisor. Puede elegir entre varias opciones de licencia para cada infraestructura convergente de FlexPod.
+
+[cols="12,64,24"]
+|===
+| Licencia | Funciones | Términos 
+
+
+| Sin licencia  a| 
+Versión limitada para demostrar las capacidades del producto:
+
+* Supervisión de las configuraciones de FlexPod para un período de prueba de 24 horas
+* Paneles de estado para ver el cumplimiento de las mejores prácticas de FlexPod
+* Inventario y correcciones limitadas (disponibles en versiones con licencia)
+
+ a| 
+* Libre
+* Un solo uso (24 horas)
+
+
+
+
+| Estándar  a| 
+* Supervisión continua de las configuraciones de FlexPod
+* Paneles de estado para ver el cumplimiento de las mejores prácticas de FlexPod
+* Interoperabilidad del firmware para computación, red, almacenamiento e hipervisor
+* Herramientas de gestión del ciclo de vida para identificar cambios y evitar que la configuración despunque
+* Inventario detallado y diagramas de sistema para resolución avanzada de problemas
+* Soporte proporcionado directamente por NetApp
+
+ a| 
+Licencia basada en suscripción:
+
+* mínimo de 12 meses
+* máximo de 60 meses
+
+
+
+
+| Premium  a| 
+Todas las funcionalidades incluidas en la licencia estándar, además de:
+
+* Creación de informes
++
+Informes completos y en tiempo real sobre el estado, la interoperabilidad y el inventario de FlexPod
+
+* Notificación y alertas
++
+Notificaciones periódicas sobre el estado de la configuración y los cambios en el estado
+
+
+ a| 
+Licencia basada en suscripción:
+
+* mínimo de 12 meses
+* máximo de 60 meses
+
+
+|===

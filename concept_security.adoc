@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: concept_security.html 
+keywords: security, data, transfer, privacy, encrypted, encryption, https, tls, customer, business 
+summary: El Asesor de sistemas convergentes recopila datos de configuración sobre su infraestructura convergente de FlexPod para ayudarle a validar y supervisar el sistema. Quizás quiera comprender cómo se recogen los datos, cómo se transfieren a NetApp y cómo se mantienen seguros y privados. 
+---
+= Seguridad
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+El Asesor de sistemas convergentes recopila datos de configuración sobre su infraestructura convergente de FlexPod para ayudarle a validar y supervisar el sistema. Quizás quiera comprender cómo se recogen los datos, cómo se transfieren a NetApp y cómo se mantienen seguros y privados.
+
+
+
+== Cómo se recogen los datos
+
+El agente de asesor de sistemas convergentes requiere credenciales para acceder a los dispositivos en su infraestructura convergente de FlexPod. Se requieren credenciales de solo lectura para switches Cisco UCS y Nexus, mientras que las credenciales de administración se requieren para ONTAP. Las credenciales se cifran y almacenan localmente en el agente; no se envían al portal basado en cloud.
+
+Después de proporcionar las credenciales, el agente recopila los datos _Configuration_ de los dispositivos. _Customer_ los datos que residen en los dispositivos nunca se accede ni se transfieren. Un ejemplo representativo de los datos de configuración que recopila el agente incluye lo siguiente:
+
+* Capacidad
+* CPU y memoria
+* Conectividad del dispositivo
+* Nombres e ID de dispositivos
+* Estado del dispositivo
+* Las versiones de firmware
+* Direcciones IP
+* Destinos iSCSI
+* Licencias
+* Direcciones MAC
+* Números de modelo
+* Números de serie
+
+
+
+
+== Cómo se transfieren los datos
+
+Después de que el agente descubre los datos de configuración de la infraestructura convergente FlexPod, los envía al portal Converged Systems Advisor mediante HTTPS. La comunicación se cifra con el certificado TLS 1.2 de NetApp.
+
+image:diagram_data_transfer.gif["Muestra una conexión HTTPS cifrada del agente al portal."]
+
+
+
+== Cómo se mantienen los datos seguros y privados
+
+Los datos de configuración residen en la red de NetApp y están gestionados por EL EQUIPO DE TECNOLOGÍA DE NetApp. Los datos se protegen mediante una capa de acceso a los datos que requiere una identificación positiva de cada usuario que solicita acceso.
+
+El usuario que implementó el agente puede acceder a los datos desde el portal de Converged Systems Advisor iniciando sesión con una cuenta del sitio de soporte de NetApp. Este usuario tiene privilegios _owner_ para la infraestructura convergente. El propietario puede compartir la infraestructura convergente con otros usuarios otorgándole privilegios de solo lectura, escritura o propietario. Estos usuarios también deben tener una cuenta registrada en el sitio de soporte de NetApp para iniciar sesión en el portal.
+
+link:reference_user_roles.html["Revise las diferencias entre los privilegios de solo lectura, escritura y propietario"].

@@ -1,0 +1,127 @@
+---
+sidebar: sidebar 
+permalink: task_monitor_rules.html 
+keywords: review, alerts, warnings, failed, rules, alerts, history, remediate, remediation, suppress, display, fail, warning, pass, notifications, email 
+summary: Puede subsanar reglas fallidas, suprimir reglas, ver la lista de reglas que se han suprimido y, si lo desea, seleccionar para finalizar la supresión. 
+---
+= Supervise las reglas de su infraestructura
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Para supervisar la infraestructura, puede subsanar reglas fallidas, suprimir reglas, ver la lista de reglas que se han suprimido y, si lo desea, seleccionar para finalizar la supresión.
+
+
+
+== Revise las alertas para ver las reglas y advertencias que han fallado
+
+Converged Systems Advisor supervisa constantemente su infraestructura y genera advertencias y errores para asegurarse de que el sistema está configurado y realizando las prácticas recomendadas.
+
+.Pasos
+. Inicie sesión en la https://csa.netapp.com/["Portal del asesor de sistemas convergentes"^] Y haga clic en *Reglas*.
++
+La página Reglas muestra un resumen de todas las reglas. El estado de cada regla es *pase*, *Advertencia* o *error*.
+
+. Haga clic en el icono de filtro en la columna Estado y seleccione *error*, *Advertencia* o ambos.
++
+image:screenshot_rules_filter.gif["Muestra el icono de filtro que permite filtrar la tabla de modo que solo se muestran las reglas que se han aprobado, han fallado o se incluyen advertencias."]
+
+. Revise los detalles de cada regla haciendo clic en la flecha situada junto a la columna Estado.
++
+image:screenshot_rules_information.gif["Muestra detalles sobre una regla, incluida la descripción, el impacto y la resolución."]
+
+. Siga las instrucciones de la resolución para solucionar el problema.
++
+Si es necesario, <<Revisión del historial de una infraestructura,revise el historial de configuración>> que la infraestructura le ayude a resolver el problema.
+
+
+
+.Después de terminar
+El estado de las reglas que ha dirigido debe aparecer como Pass después del próximo período de recopilación del agente.
+
+
+
+== Subsanar reglas fallidas
+
+El asesor de sistemas convergentes puede resolver algunas reglas fallidas corrigiendo el problema subyacente con la infraestructura convergente.
+
+.Acerca de esta tarea
+* Debe tener la licencia Premium.
+* Debe tener asignado como propietario de la infraestructura convergente.
+
+
+.Pasos
+. Inicie sesión en la https://csa.netapp.com/["Portal del asesor de sistemas convergentes"^] Y haga clic en *Reglas*.
++
+La página Reglas muestra un resumen de todas las reglas. El estado de cada regla es *pase*, *Advertencia* o *error*.
+
+. Seleccione *Reglas de filtro que se pueden solucionar*.
+. Expanda la regla que desea resolver.
+. Haga clic en image:wrench_icon.jpg["Muestra el icono de llave inglesa que permite corregir automáticamente reglas fallidas."] en la esquina superior derecha de la regla expandida.
++
+Si el icono está desactivado, es porque el agente está desconectado, no tiene privilegios de propietario o porque no dispone de una licencia Premium.
+
+. Si es necesario, rellene los valores de entrada.
++
+Dependiendo de la regla fallida, algunos valores de entrada son necesarios para resolver el problema.
+
+. Si desea que se lleve a cabo una recopilación de datos después de que la corrección se haya completado correctamente, seleccione la opción *recopilar cuando se complete el trabajo de corrección*.
+. Haga clic en *Ejecutar corrección*.
+. Haga clic en *Confirmar*.
+. Para ver las acciones que se están llevando a cabo para resolver las reglas fallidas, haga clic en el icono *Operaciones* y seleccione *Acción de corrección*.
++
+image:operations_icon.gif["La muestra el icono de operaciones que abre el menú para ver las acciones remediadas."]
+
+
+
+
+
+== Suprimir reglas fallidas
+
+Converged Systems Advisor le permite suprimir reglas para que no se muestren en la consola y ya no envíen notificaciones por correo electrónico en caso de fallo de regla.
+
+Por ejemplo, no se recomienda activar telnet, pero si prefiere activarlo, puede suprimir la regla.
+
+.Acerca de esta tarea
+Debe tener la licencia Premium para configurar notificaciones.
+
+.Pasos
+. En el Panel de control, haga clic en *Reglas*.
+. Puede buscar las reglas que busca filtrando el contenido de la tabla.
+. Seleccione una o más filas para las reglas que tengan el estado Advertencia o error y haga clic en el icono *Alertas*.
++
+image:screenshot_rules_suppress.gif["Muestra el icono de alertas encima de la tabla, lo que permite suprimir reglas."]
+
+. Seleccione una duración y, a continuación, haga clic en *Enviar*.
+
+
+
+TIP: Si desea activar las alertas, siga estos mismos pasos y seleccione *terminar supresión*.
+
+.Resultado
+El Asesor de sistemas convergentes ya no le notifica sobre la regla durante el período de tiempo especificado y la regla ya no estará visible en el panel.
+
+
+
+== Mostrar reglas suprimidas
+
+.Pasos
+. Haga clic en el icono *Configuración* y seleccione *Reglas suprimidas*.
++
+image:screenshot_suppressed_rules.gif["Muestra el icono settins que abre el menú para seleccionar reglas suprimidas."]
+
+. Seleccione las reglas suprimidas que desea comenzar a mostrar.
+. Haga clic en el icono *Alertas*.
++
+image:screenshot_rules_suppress.gif["Muestra el icono de alertas encima de la tabla, lo que permite suprimir reglas."]
+
+. Seleccione *terminar supresión* y, a continuación, haga clic en *Enviar*.
+
+
+.Resultado
+Las alertas se activan para la regla seleccionada y la regla se muestra en la tabla Reglas y el panel de control.

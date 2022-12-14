@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: task_review_infrastructure_history.html 
+keywords: review, history, converged, infrastructure, configuration, resolve, issue, warnings, failures, collected, collections, data 
+summary: Cuando recibe una alerta acerca de una regla fallida, puede ver un historial de lo que ha cambiado en la configuración para ayudarle a resolver el problema. 
+---
+= Revisar el historial de una infraestructura
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cuando recibe una alerta acerca de una regla fallida, puede ver un historial de lo que ha cambiado en la configuración para ayudarle a resolver el problema.
+
+.Pasos
+. Seleccione una infraestructura convergente.
+. Haga clic en *más > Historial*.
++
+image:screenshot_history_navigation.gif["Muestra el menú más que incluye la opción de historial."]
+
+. Haga clic en un día en el calendario para ver el número de advertencias y errores que se identificaron durante cada recopilación de datos.
++
+
+TIP: El número que aparece para cada día corresponde al número de veces que el agente recopiló datos. Por ejemplo, si mantiene el intervalo de recopilación predeterminado de 24 horas, debería ver una recopilación por día.
+
++
+La siguiente imagen muestra una única colección el 27 del mes.
+
++
+image:screenshot_history_status.gif["Muestra el número uno y un punto amarillo en el 27 del mes."]
+
+. Para ver más detalles sobre los datos recopilados, haga clic en *vaya a CI Dashboard* para obtener una colección.
+. Si es necesario, consulte el historial de la última vez que no se hayan identificado advertencias ni fallos.
++
+La comparación de los datos entre los dos períodos de recopilación puede ayudarle a identificar qué ha cambiado.
+
+

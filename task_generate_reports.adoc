@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: task_generate_reports.html 
+keywords: generate, report, reports, converged, infrastructure, health, inventory, assessment, deployment, validation, partners, issues, configured, configuration, interoperability, downloaded, PDF, email 
+summary: Puede generar varios tipos de informes, como un informe de mantenimiento o un informe de validación de la implementación para los partners. 
+---
+= Generar informes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si tiene una licencia Premium, puede generar varios tipos de informes que proporcionen detalles sobre el estado actual de su infraestructura convergente: Un informe de inventario, un informe de estado, un informe de evaluación, un informe de validación de implementación para partners, etc.
+
+.Pasos
+. Haga clic en *Informes*.
+. Seleccione un informe y haga clic en *generar*.
+. Elija las opciones del informe:
++
+.. Seleccione una infraestructura convergente.
+.. Si lo desea, puede cambiar de la colección de datos más reciente a una anterior.
+.. Elija cómo desea ver el informe: En su navegador, en un PDF descargado o por correo electrónico.
++
+image:screenshot_reports_generate.gif["Muestra las opciones para generar un informe, donde se incluye seleccionar una infraestructura convergente y una Snapshot, y luego elegir cómo desea verlo."]
+
+
+
+
+
+.Resultado
+Converged Systems Advisor genera el informe.

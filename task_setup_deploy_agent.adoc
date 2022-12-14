@@ -1,0 +1,160 @@
+---
+sidebar: sidebar 
+permalink: task_setup_deploy_agent.html 
+keywords: setup, deploy, FlexPod, configuration, VMware, ESXi server, FlexPod, converged, infrastructure, data, agent 
+summary: Ponga en marcha el agente de Converged Systems Advisor en un servidor VMware ESXi. 
+---
+= Configurar e implementar el agente
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Debe implementar el agente de Converged Systems Advisor en un servidor VMware ESXi. El agente recopila datos de configuración sobre cada dispositivo en la infraestructura convergente de FlexPod y los envía al portal del Asesor de sistemas convergentes.
+
+.Pasos
+. <<Descargue e instale el agente>>
+. <<Configurar la red para el agente>>
+. <<Instale un certificado SSL en el agente>>
+. <<Configure el agente para descubrir su infraestructura de FlexPod>>
+
+
+
+
+== Descargue e instale el agente
+
+Debe implementar el agente de Converged Systems Advisor en un servidor VMware ESXi.
+
+.Acerca de esta tarea
+Para minimizar el uso de ancho de banda, debe instalar el agente en un servidor VMware ESXi que se encuentre en el mismo centro de datos que la configuración de FlexPod. El agente debe tener conectividad con cada componente de FlexPod y a Internet para poder enviar datos de configuración al portal de Converged Systems Advisor mediante el puerto HTTPS 443.
+
+El agente se implementa como máquina virtual VMware vSphere a partir de una plantilla de formato de virtualización abierta (OVF). La plantilla está basada en Debian con 1 vCPU y 2 GB de RAM (puede que se necesite más para sistemas FlexPod múltiples o más grandes).
+
+.Pasos
+. Descargue el agente:
++
+.. Inicie sesión en la https://csa.netapp.com/["Portal del asesor de sistemas convergentes"^].
+.. Haga clic en *Descargar agente*.
+
+
+. Instale el agente implementando la plantilla OVF en el servidor ESXi de VMware.
++
+En algunas versiones de VMware, es posible que reciba una advertencia al implementar la plantilla OVF. La máquina virtual se desarrolló en la versión más reciente de vCenter con compatibilidad de hardware para versiones anteriores, lo que podría generar una advertencia. Debe revisar las opciones de configuración antes de reconocer la advertencia y continuar con la instalación.
+
+
+
+
+
+== Configurar la red para el agente
+
+Debe asegurarse de que las redes estén configuradas correctamente en la máquina virtual del agente para habilitar la comunicación entre el agente y los dispositivos FlexPod, así como entre el agente y varios puntos finales de Internet. Tenga en cuenta que la pila de red está deshabilitada en la máquina virtual hasta que el sistema se inicialice.
+
+.Pasos
+. Asegúrese de que una conexión a Internet saliente permite el acceso a los siguientes puntos finales:
++
+** csa.netapp.com
+** docker.com
+** docker.io
+
+
+. Inicie sesión en la consola de máquina virtual del agente mediante el cliente de VMware vSphere.
++
+El nombre de usuario predeterminado es `csa` y la contraseña predeterminada es `netapp`.
+
++
+
+TIP: POR motivos de seguridad, SSHD está desactivado de forma predeterminada.
+
+. Cuando se le solicite, cambie la contraseña predeterminada y anote la contraseña porque no puede recuperarse.
++
+Después de cambiar la contraseña, el sistema se reinicia e inicia el software del agente.
+
+. Si DHCP no está disponible en la subred, configure una dirección IP estática y una configuración DNS utilizando las herramientas estándar de Debian y reinicie el agente.
++
+link:task_setting_static_ip.html["Haga clic aquí para obtener instrucciones detalladas"].
+
++
+La configuración de red de la máquina virtual Debian toma como valor predeterminado DHCP. NetworkManager está instalado y proporciona una interfaz de usuario de texto que puede iniciar desde el comando nmtui (consulte la https://manpages.debian.org/stretch/network-manager/nmtui.1.en.html["página de manual"^] para obtener más detalles).
+
++
+Para obtener ayuda adicional sobre las redes, consulte https://wiki.debian.org/NetworkConfiguration["La página de configuración de red en el wiki de Debian"^].
+
+. Si las políticas de seguridad determinan que el agente debe estar en una red para comunicarse con los dispositivos FlexPod y otra red para comunicarse con Internet, añada una segunda interfaz de red en vCenter y configure las VLAN y las direcciones IP correctas.
+. Si se necesita un servidor proxy para el acceso a Internet, ejecute el siguiente comando:
++
+`sudo csa_set_proxy`
+
++
+El comando genera dos peticiones de datos y muestra el formato necesario para la entrada del proxy. El primer aviso le permite especificar un proxy HTTP, mientras que el segundo le permite especificar un proxy HTTPS.
+
++
+Introduzca el siguiente proxy HTTP con el formato:
+`http://user:password@proxy-server:proxy-port`
+
++
+Déjelo en blanco si no se requiere un proxy HTTP para el acceso a Internet.
+
+. Una vez que la red esté activa, espere aproximadamente 5 minutos para que el sistema se actualice y se inicie.
++
+Aparece un mensaje de difusión en la consola cuando el agente está operativo.
+
+. Verifique la conectividad ejecutando el siguiente comando CLI desde el agente:
++
+ curl -k https://www.netapp.com/us/index.aspx
++
+Si el comando falla, compruebe la configuración de DNS. La máquina virtual del agente debe tener una configuración DNS válida y la capacidad de llegar a csa.netapp.com.
+
+
+
+
+
+== Instale un certificado SSL en el agente
+
+Opcional: Si es necesario, instale un certificado SSL en el agente.
+
+El agente crea un certificado autofirmado cuando se arranca la máquina virtual por primera vez. Si es necesario, puede eliminar ese certificado y utilizar su propio certificado SSL.
+
+.Acerca de esta tarea
+Converged Systems Advisor es compatible con lo siguiente: * Cualquier cifrado compatible con OpenSSL versión 1.0.1 o superior * TLS 1.1 y TLS 1.2
+
+.Pasos
+. Inicie sesión en la consola de máquina virtual del agente.
+. Vaya a. `/opt/csa/certs`
+. Elimine el certificado autofirmado que creó el agente.
+. Pegue su certificado SSL.
+. Reiniciar la máquina virtual.
+
+
+
+
+== Configure el agente para descubrir su infraestructura de FlexPod
+
+Debe configurar el agente para recopilar datos de configuración de cada dispositivo de la infraestructura convergente de FlexPod. El agente requiere credenciales para recopilar datos de configuración. Debe proporcionar las credenciales cuando configure el agente.
+
+.Pasos
+. Abra un explorador web e introduzca la dirección IP de la máquina virtual del agente.
+. Inicie sesión en el agente con el nombre de usuario y la contraseña de la cuenta del sitio de soporte de NetApp del cliente.
++
+
+NOTE: Para cualquier partner que ponga en marcha una versión con licencia de CSA en nombre de sus clientes, es importante que la cuenta del cliente se utilice en este paso (para la gestión de registros y soporte de NetApp).
+
+. Agregue los dispositivos FlexPod que desea que detecte el agente.
++
+Dispone de dos opciones:
+
++
+.. Haga clic en *Agregar un dispositivo* para introducir detalles sobre los dispositivos FlexPod, uno por uno.
+.. Haga clic en *Importar dispositivos* para rellenar y cargar una plantilla CSV que incluya detalles sobre todos los dispositivos.
++
+Nota: * El nombre de usuario y la contraseña deben corresponder a la cuenta que creó anteriormente para el dispositivo. * Si su entorno UCS tiene configurada la administración de usuarios LDAP, debe agregar el dominio del usuario antes que el nombre de usuario. Por ejemplo: Local\csa-readonly
+
+
+
+
+
+.Resultado
+Cada dispositivo de la infraestructura de FlexPod debe aparecer en la tabla con una Marca de verificación.image:screenshot_agent_configuration.gif["Muestra cada dispositivo necesario con una Marca de verificación verde en la columna Estado."]

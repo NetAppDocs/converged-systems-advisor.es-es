@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: task_deployment_validation_partners_resellers.html 
+keywords: review, alerts, warnings, failed, rules, alerts, history, remediate, remediation, suppress, display, fail, warning, pass, notifications, email 
+summary: Como partner o distribuidor, puede validar la puesta en marcha de la infraestructura de un cliente. 
+---
+= Valide la puesta en marcha para partners y distribuidores
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Como partner o distribuidor, puede validar la implementación de la infraestructura de su cliente revisando los datos que se muestran en la consola o generando un informe de estado.
+
+.Antes de empezar
+* Ha instalado un nuevo FlexPod en las instalaciones de su cliente o está trabajando con un FlexPod existente.
+* Ha creado cuentas en dispositivos FlexPod.
+* Si está utilizando un servidor TACACS+, ha otorgado privilegios de usuario de CSA.
+* Ha descargado e instalado el agente.
++
+Consulte link:task_setup_deploy_agent.html["Configurar e implementar el agente"].
+
+* Configure la red para el agente y, opcionalmente, instaló un certificado SSL en el agente.
+* Con las credenciales de NetApp, ha creado la CI para que su cliente añada la infraestructura al portal.
++
+Consulte link:task_add_infrastructure["Añada infraestructura al portal"] Para crear un CI en el portal de CSA.
+
+* Opcionalmente, ha compartido la infraestructura con otros usuarios.
+
+
+.Pasos
+Los partners y los distribuidores utilizan sus propias credenciales de NetApp para iniciar sesión en el portal CSA para iniciar el proceso de validación.
+
+. Inicie sesión en la https://csa.netapp.com/["Portal del asesor de sistemas convergentes"^] Uso de sus credenciales de NetApp.
+. Haga clic en *Seleccionar un CI* y, a continuación, haga clic en el CI adecuado para el cliente, o escriba el nombre del CI en el cuadro de búsqueda. Se muestra el panel de control del CI.
+
+
+Como partner o distribuidor, puede validar la infraestructura de su cliente mediante los métodos siguientes:
+
+* En la consola, se pueden validar diversos aspectos de la infraestructura:
++
+** *Interoperabilidad del firmware* muestra las versiones de software instaladas. Haga clic en cada encabezado para ver más detalles.
+** *Contrato de soporte* se muestra cuando expiran los contratos. Haga clic en *Ver detalles* para obtener más información.
+** *Estado del agente* muestra detalles sobre el agente, incluidos los dispositivos que se están supervisando.
+** *Capacity* muestra la utilización del espacio en disco, los puertos de red y el chasis blade UCS. Haga clic en los enlaces para ver los detalles de cada utilización.
+** * Health* muestra gráficamente el estado de las reglas para las capacidades de almacenamiento, computación, red y virtualización de la infraestructura. Haga clic en las áreas de color de los gráficos para ver detalles adicionales.
+** *Resumen de reglas* muestra alertas de reglas y advertencias fallidas. Haga clic en las flechas a la izquierda de cada fila o haga clic en el nombre del dispositivo para ver detalles adicionales.
+
+
+* En la barra de acciones, seleccione *Informes->Informe de mantenimiento*, para generar un informe de estado del sistema convergente detallado. Puede verlo en el navegador, descargarlo como archivo PDF o compartirlo por correo electrónico.
+

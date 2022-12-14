@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: task_track_contracts.html 
+keywords: track, support, contracts, renew, converged, infrastructure, device, devices, 
+summary: Puede agregar detalles sobre los contratos de soporte para cada dispositivo en una configuración, incluida la fecha de inicio, la fecha de finalización y el ID del contrato. 
+---
+= Haga un seguimiento de los contratos de soporte
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Puede agregar detalles sobre los contratos de soporte para cada dispositivo en una configuración: La fecha de inicio, la fecha de finalización y el ID del contrato. Esto le permite realizar un seguimiento sencillo de los detalles en una ubicación central para saber cuándo renovar los contratos de soporte para cada dispositivo.
+
+.Pasos
+. Haga clic en *Seleccionar un CI* y seleccione la infraestructura convergente.
+. En el widget Contrato de soporte, haga clic en el icono *Editar contrato*.
+. Seleccione *Fecha de inicio* y *Fecha de finalización* e introduzca *ID de contrato*.
+. Haga clic en *Enviar*.
+. Repita los pasos para cada dispositivo de la configuración.
+
+
+.Resultado
+Converged Systems Advisor ahora muestra los detalles del contrato de soporte de cada dispositivo. Puede ver fácilmente qué dispositivos tienen contratos de soporte activos y caducados.
+
+image:screenshot_support_contracts.gif["Muestra cuatro contratos de soporte: Uno ha caducado y los otros tres están activos."]

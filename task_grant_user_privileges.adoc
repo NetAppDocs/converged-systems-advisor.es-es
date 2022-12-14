@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: task_grant_user_privileges.html 
+keywords: grant, user, privileges, TACACS+, server, group, command, commands, access, CSA, user, account 
+summary: Si está utilizando un servidor TACACS+ y necesita otorgar privilegios de usuario de CSA para los conmutadores, debe crear un grupo de privilegios de usuario y conceder acceso de grupo a los comandos de configuración específicos que necesita CSA. 
+---
+= Conceda privilegios de usuario de CSA mediante un servidor TACACS+
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Si está utilizando un servidor TACACS+ y necesita otorgar privilegios de usuario de CSA para los conmutadores, debe crear un grupo de privilegios de usuario y conceder acceso de grupo a los comandos de configuración específicos que necesita CSA. Los siguientes comandos se deben escribir en el archivo de configuración del servidor TACACS+.
+
+.Pasos
+. Introduzca lo siguiente para crear un grupo de privilegios de usuario con acceso de sólo lectura: Group=group_name { Default Service=deny service=exec{ priv-lvl=0 }
+. Introduzca lo siguiente para otorgar acceso a los comandos que necesita CSA: cmd=show { permitir "entorno" permitir "versión" permitir "función" permitir "conjunto de funciones" permitir hardware.* permitir "interfaz" permitir "interfaz" permitir "transceptor de interfaz" permitir "inventario" permitir "licencia" permitir "módulo" permitir "base de datos de canal de puerto" permitir "interlocutores de ntp" permitir "uso de licencia" permitir "resumen de canal de puerto" ejecutar "permiso de configuración "cdp neighbors detail" permitir "vlan" permitir "vpc" permitir "vpc peer-keepaly" permitir "mac address-table" permitir "lacp port-channel" permitir "policy-map" permitir "policy-map system type qos" permitir "policy-map system type network-qos" permitir "zet active" permitir "zoneset active" permitir "vsan" permitir "uso vsan" permitir "pertenencia a vsan" }
+. Introduzca lo siguiente para agregar su cuenta de usuario de CSA al grupo recién creado: User=user_account{ member=group_name login=file/etc/passwd }
+
