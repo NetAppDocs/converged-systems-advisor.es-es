@@ -19,4 +19,4 @@ El asesor de sistemas convergentes valida la puesta en marcha de su infraestruct
 Vea el siguiente vídeo para obtener una descripción general de Converged Systems Advisor:
 
 video::CZHu0Xp33BY[youtube,width=848,height=480]
-Si desea obtener más detalles sobre el valor que proporciona Converged Systems Advisor, https://www.netapp.com/us/media/ds-3896.pdf["lea la hoja de datos"^].
+Para obtener más detalles sobre el valor que proporciona Converged Systems Advisor, https://www.netapp.com/data-storage/flexpod/cooperative-support/["lea la hoja de datos"^].

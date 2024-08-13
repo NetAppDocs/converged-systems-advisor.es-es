@@ -408,10 +408,8 @@
   <block id="70a81ab3570971044c051a122f25ee0b" category="summary">Puede conseguir ayuda y encontrar más información sobre el Asesor de sistemas convergentes mediante varios recursos.</block>
   <block id="3cd12697cda279c9c99b093a265c1ba8" category="doc">Dónde encontrar ayuda y más información</block>
   <block id="ba69e3ff884a3e60e26bcffcb121315d" category="inline-link">Asesor de sistemas convergentes: Especificaciones técnicas</block>
-  <block id="5bcf85e8807e9d7961fa86529a7ee3ac" category="list-text"><block ref="5bcf85e8807e9d7961fa86529a7ee3ac" category="inline-link-rx"></block></block>
   <block id="b1b49e994988385600e529f9e03aeded" category="paragraph">Para obtener más detalles sobre el valor que proporciona Converged Systems Advisor.</block>
   <block id="5768a4e6671c0fb61f9cc9bccc217998" category="inline-link">Informe técnico de NetApp 4036: Especificaciones técnicas del centro de datos de FlexPod</block>
-  <block id="9569519d894aa3e75942763a12a60c12" category="list-text"><block ref="9569519d894aa3e75942763a12a60c12" category="inline-link-rx"></block></block>
   <block id="d5ae438f326f42644223635842ca89cc" category="paragraph">Revise las prácticas recomendadas y los requisitos de firmware con los que Converged Systems Advisor compara sus configuraciones.</block>
   <block id="b1540a3ec25c7d8277b499a1cc1d920b" category="list-text"><block ref="b1540a3ec25c7d8277b499a1cc1d920b" category="inline-link-rx"></block></block>
   <block id="b9c8769caa39394587c227d447b7343b" category="paragraph">Verifique la compatibilidad con la configuración.</block>
@@ -732,7 +730,6 @@
   <block id="4daf49986af67aba8f5e944968d88167" category="doc">Información general del asesor de sistemas convergentes</block>
   <block id="b3072b853bb7e155aaf1f74dc7548418" category="paragraph">Vea el siguiente vídeo para obtener una descripción general de Converged Systems Advisor:</block>
   <block id="fccce43bca628d5f348a9d60196dd5ac" category="inline-link">lea la hoja de datos</block>
-  <block id="c4a6f4e43c995f810acb8c7b73e0d5d1" category="paragraph">Si desea obtener más detalles sobre el valor que proporciona Converged Systems Advisor,<block ref="f25cd14a6ee6a3fdd35c3bb14df6ae32" category="inline-link-rx"></block>.</block>
   <block id="6ee6d9fef76364b6211226d197ecc12d" category="summary">Para comenzar, configure cuentas para dispositivos FlexPod.</block>
   <block id="763bff2d0a7510e1f497deffa1445dc8" category="doc">Crear cuentas para dispositivos FlexPod</block>
   <block id="b73ab54ffa874225e874120d5e960d8d" category="paragraph">Para comenzar, configure cuentas para dispositivos FlexPod:</block>
@@ -790,4 +787,7 @@
   <block id="b7b722eea69a1d2e85256ecaa18b4620" category="sidebar">Supervisar reglas</block>
   <block id="231cf4c70d866b616c21baddaeed0696" category="sidebar">Resolución de problemas</block>
   <block id="f6bd0d7447ff66cc6b859603a88fbde9" category="sidebar">Enlaces relacionados</block>
+  <block id="671f9fcb308d27b5e6c67487a132689b" category="paragraph">Para obtener más detalles sobre el valor que proporciona Converged Systems Advisor,<block ref="fc23d3c004c60b82dbfd031bd239bfab" category="inline-link-rx"></block>.</block>
+  <block id="87f06a4b2aacd95154431aea948042fa" category="list-text"><block ref="87f06a4b2aacd95154431aea948042fa" category="inline-link-rx"></block></block>
+  <block id="cf7b58ed3bc4022cb990fe98807b8da5" category="list-text"><block ref="cf7b58ed3bc4022cb990fe98807b8da5" category="inline-link-rx"></block></block>
 </blocks>
